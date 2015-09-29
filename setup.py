@@ -34,7 +34,7 @@ setup(
     extras_require={'test': tests_require},
     test_suite='runtests.runtests',
     entry_points={
-       'sentry.plugins': [
+        'sentry.plugins': [
             'irccat = sentry_irccat.plugin:IRCCatMessage'
         ],
     },
