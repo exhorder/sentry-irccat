@@ -37,7 +37,7 @@ class IRCCatMessage(NotificationPlugin):
         event = notification.event
         group = event.group
         link = group.get_absolute_url()
-        message = '[sentry %s] %s (%s)' % (
+        message = u'[sentry %s] %s (%s)' % (
             event.server_name, event.message, link
         )
         self.send_payload(event.project, message)
@@ -48,6 +48,6 @@ class IRCCatMessage(NotificationPlugin):
             self.get_option('host', project),
             self.get_option('port', project)
         ))
-        msg = "%s %s\r\n" % (self.get_option('channel', project), message)
-        sock.send(msg)
+        msg = u"%s %s\r\n" % (self.get_option('channel', project), message)
+        sock.send(msg.encode('utf-8'))
         sock.close()
