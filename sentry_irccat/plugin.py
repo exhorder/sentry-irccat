@@ -37,8 +37,8 @@ class IRCCatMessage(NotificationPlugin):
         event = notification.event
         group = event.group
         link = group.get_absolute_url()
-        message = u'[sentry %s] %s (%s)' % (
-            event.server_name, event.message, link
+        message = u'[sentry] (%s)' % (
+            event.message, link
         )
         self.send_payload(event.project, message)
 
